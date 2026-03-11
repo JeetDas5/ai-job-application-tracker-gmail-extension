@@ -1,0 +1,556 @@
+:root {
+    --primary: #2563eb;
+    --bg-main: #f8fafc;
+    --bg-sidebar: white;
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --filter-hover: #eff6ff;
+    --card-bg: white;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Table */
+    --table-header-bg: #f1f5f9;
+    --table-header-text: #64748b;
+    --table-border: #f1f5f9;
+
+    /* Status Colors (Light Mode) */
+    --status-applied-bg: #dbeafe;
+    --status-applied-text: #1e40af;
+    --status-interview-bg: #fef9c3;
+    --status-interview-text: #854d0e;
+    --status-rejected-bg: #fee2e2;
+    --status-rejected-text: #991b1b;
+    --status-offer-bg: #dcfce7;
+    --status-offer-text: #166534;
+
+    --highlight-row-bg: #fffbeb;
+    --accent-amber: #b45309;
+
+    --delete-color: #ef4444;
+    --delete-hover-bg: #fee2e2;
+
+    /* Settings */
+    --input-bg: white;
+    --input-border: #cbd5e1;
+}
+
+/* DARK MODE OVERRIDES - Handled by class on Body OR media query */
+@media (prefers-color-scheme: dark) {
+
+    /* If body does NOT have explicit light class */
+    body:not(.theme-light) {
+        --bg-main: #0f172a;
+        --bg-sidebar: #1e293b;
+        --text-main: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --border-color: #334155;
+        --filter-hover: #334155;
+        --card-bg: #1e293b;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+
+        --table-header-bg: #334155;
+        --table-header-text: #cbd5e1;
+        --table-border: #334155;
+
+        --status-applied-bg: #1e3a8a;
+        --status-applied-text: #dbeafe;
+        --status-interview-bg: #713f12;
+        --status-interview-text: #fef9c3;
+        --status-rejected-bg: #7f1d1d;
+        --status-rejected-text: #fee2e2;
+        --status-offer-bg: #14532d;
+        --status-offer-text: #dcfce7;
+
+        --highlight-row-bg: #451a03;
+        --accent-amber: #f59e0b;
+
+        --delete-hover-bg: #7f1d1d;
+
+        --input-bg: #334155;
+        --input-border: #475569;
+    }
+}
+
+/* Explicit DARK Mode Class (overrides system light preference) */
+body.theme-dark {
+    --bg-main: #0f172a;
+    --bg-sidebar: #1e293b;
+    --text-main: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --filter-hover: #334155;
+    --card-bg: #1e293b;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+
+    --table-header-bg: #334155;
+    --table-header-text: #cbd5e1;
+    --table-border: #334155;
+
+    --status-applied-bg: #1e3a8a;
+    --status-applied-text: #dbeafe;
+    --status-interview-bg: #713f12;
+    --status-interview-text: #fef9c3;
+    --status-rejected-bg: #7f1d1d;
+    --status-rejected-text: #fee2e2;
+    --status-offer-bg: #14532d;
+    --status-offer-text: #dcfce7;
+
+    --highlight-row-bg: #451a03;
+    --accent-amber: #f59e0b;
+
+    --delete-hover-bg: #7f1d1d;
+
+    --input-bg: #334155;
+    --input-border: #475569;
+}
+
+/* Explicit LIGHT Mode Class (overrides system dark preference) */
+body.theme-light {
+    --primary: #2563eb;
+    --bg-main: #f8fafc;
+    --bg-sidebar: white;
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --filter-hover: #eff6ff;
+    --card-bg: white;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --table-header-bg: #f1f5f9;
+    --table-header-text: #64748b;
+    --table-border: #f1f5f9;
+    --status-applied-bg: #dbeafe;
+    --status-applied-text: #1e40af;
+    --status-interview-bg: #fef9c3;
+    --status-interview-text: #854d0e;
+    --status-rejected-bg: #fee2e2;
+    --status-rejected-text: #991b1b;
+    --status-offer-bg: #dcfce7;
+    --status-offer-text: #166534;
+    --highlight-row-bg: #fffbeb;
+    --accent-amber: #b45309;
+    --delete-color: #ef4444;
+    --delete-hover-bg: #fee2e2;
+    --input-bg: white;
+    --input-border: #cbd5e1;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    color: var(--text-main);
+    margin-bottom: 30px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav {
+    flex-grow: 1;
+}
+
+.nav-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px;
+    margin-bottom: 5px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.nav-item.active {
+    background: var(--filter-hover);
+    color: var(--primary);
+}
+
+#app-filters {
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 10px 0;
+}
+
+.filter-header {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.filter-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    margin-bottom: 2px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.filter-btn.active {
+    background: var(--filter-hover);
+    color: var(--primary);
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#refresh-dashboard {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Table */
+.table-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px var(--shadow-color);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    padding: 16px;
+    background: var(--table-header-bg);
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--table-header-text);
+}
+
+td {
+    padding: 16px;
+    border-top: 1px solid var(--table-border);
+    color: var(--text-main);
+}
+
+.status-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-Applied {
+    background: var(--status-applied-bg);
+    color: var(--status-applied-text);
+}
+
+.status-Interviewing {
+    background: var(--status-interview-bg);
+    color: var(--status-interview-text);
+}
+
+.status-Rejected {
+    background: var(--status-rejected-bg);
+    color: var(--status-rejected-text);
+}
+
+.status-Offer {
+    background: var(--status-offer-bg);
+    color: var(--status-offer-text);
+}
+
+/* Highlight rows with interviews */
+.row-highlight {
+    background-color: var(--highlight-row-bg) !important;
+}
+
+.interview-icon {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+small {
+    color: var(--accent-amber);
+    font-weight: 600;
+    display: block;
+    margin-top: 4px;
+}
+
+.delete-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--delete-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background: var(--delete-hover-bg);
+}
+
+.view-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.view-btn:hover {
+    background: var(--filter-hover);
+}
+
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+#export-csv {
+    background: var(--card-bg);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#export-csv:hover {
+    background: var(--filter-hover);
+}
+
+/* SETTINGS STYLES */
+.settings-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px var(--shadow-color);
+    max-width: 600px;
+}
+
+.setting-group {
+    margin-bottom: 25px;
+}
+
+.setting-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.setting-group input,
+.setting-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    background: var(--input-bg);
+    color: var(--text-main);
+    font-size: 14px;
+}
+
+.setting-group small {
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-weight: normal;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
+}
+
+/* Model Controls UI */
+.model-controls-wrapper {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 12px;
+    background: var(--bg-main);
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-main);
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0;
+}
+
+#sort-models {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-color: var(--border-color);
+    background-color: var(--card-bg);
+    cursor: pointer;
+    width: auto;
+}
+
+#refresh-models {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#refresh-models:hover {
+    background: var(--filter-hover);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Mode Toggle */
+.mode-toggle-wrapper {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.mode-btn.active {
+    border-color: var(--primary);
+    background: var(--filter-hover);
+    color: var(--primary);
+}
+
+/* Custom Mode Relevance Pill */
+.status-pill.status-relevant {
+    background: var(--status-offer-bg);
+    color: var(--status-offer-text);
+}
+
+.status-pill.status-not-relevant {
+    background: var(--table-header-bg);
+    color: var(--text-secondary);
+}
+
+/* Summary text in custom mode */
+.ai-summary-text {
+    font-size: 13px;
+    color: var(--text-main);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+/* Scrollbar adjustment for dark mode */
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #1e293b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+    }
+}

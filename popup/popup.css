@@ -1,0 +1,141 @@
+:root {
+    --bg-color: #f9f9f9;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-tertiary: #555;
+    --card-bg: white;
+    --border-color: #ddd;
+    --input-border: #ccc;
+    --input-bg: white;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1e1e1e;
+        --text-primary: #e0e0e0;
+        --text-secondary: #a0a0a0;
+        --text-tertiary: #b0b0b0;
+        --card-bg: #2d2d2d;
+        --border-color: #444;
+        --input-border: #555;
+        --input-bg: #333;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+body {
+    width: 350px;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 15px;
+    background: var(--bg-color);
+    color: var(--text-primary);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    transition: 0.2s;
+}
+
+#sync-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+#sync-btn:hover {
+    background: var(--primary-hover);
+}
+
+#stats {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 10px 0;
+}
+
+.list-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.job-card {
+    background: var(--card-bg);
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.job-card h4 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.job-card p {
+    margin: 2px 0;
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.status-badge {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.settings-link {
+    margin-top: 15px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+}
+
+/* Scrollbar adjustment for dark mode */
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #1e1e1e; 
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #555; 
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #777; 
+    }
+}

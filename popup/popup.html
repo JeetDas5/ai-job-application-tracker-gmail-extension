@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="header">
+        <h2 id="popup-title">Job Tracker AI</h2>
+        <button id="sync-btn">Sync Gmail</button>
+    </div>
+
+    <div id="stats">
+        <span id="job-count">0</span> <span id="count-label">Applications Tracked</span> <br>
+        <span style="font-size: 10px; color: grey;">Last Synced: <span id="last-sync-time">Never</span></span>
+    </div>
+
+    <div id="job-list" class="list-container">
+    </div>
+
+    <div class="settings-link">
+        <button id="open-dashboard" style="width: 100%; background: #eee; color: #333; margin-top: 10px;">Open Dashboard
+            &amp; Settings</button>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
